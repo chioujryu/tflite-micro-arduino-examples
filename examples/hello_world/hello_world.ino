@@ -15,11 +15,11 @@ limitations under the License.
 
 #include <TensorFlowLite.h>
 
-#include "constants.h"
+#include "constants.h" // 定義常用常數
 #include "main_functions.h"
 #include "model.h"
 #include "output_handler.h"
-#include "tensorflow/lite/micro/all_ops_resolver.h"
+#include "tensorflow/lite/micro/all_ops_resolver.h"// 提供解釋器用來運行模型的操作。
 #include "tensorflow/lite/micro/micro_interpreter.h"
 #include "tensorflow/lite/micro/micro_log.h"
 #include "tensorflow/lite/micro/system_setup.h"
