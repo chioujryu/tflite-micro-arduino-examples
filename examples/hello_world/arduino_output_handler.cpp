@@ -21,12 +21,14 @@ limitations under the License.
 #include "tensorflow/lite/micro/micro_log.h"
 
 // The pin of the Arduino's built-in LED
-int led = LED_BUILTIN;
+int led = LED_BUILTIN;   ////這是arduino本機亮燈的寫法
 
 // Track whether the function has run at least once
+//追蹤函數是否已經運行過至少一次。
 bool initialized = false;
 
 // Animates a dot across the screen to represent the current x and y values
+//將一個點在屏幕上移動，以表示當前的 x 和 y 值。
 void HandleOutput(float x_value, float y_value) {
   // Do this only once
   if (!initialized) {
@@ -37,6 +39,7 @@ void HandleOutput(float x_value, float y_value) {
 
   // Calculate the brightness of the LED such that y=-1 is fully off
   // and y=1 is fully on. The LED's brightness can range from 0-255.
+  //計算 LED 的亮度，使得當 y=-1 時完全關閉，而當 y=1 時完全開啟。LED 的亮度範圍為 0-255。  
   int brightness = (int)(127.5f * (y_value + 1));
 
   // The y value is not actually constrained to the range [-1, 1], so we need to
@@ -50,5 +53,5 @@ void HandleOutput(float x_value, float y_value) {
 
   // Log the current brightness value for display in the Arduino plotter
   MicroPrintf("%d\n", brightness);
-  delay(33);
+  delay(33); 
 }
